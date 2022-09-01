@@ -1,7 +1,6 @@
-backend_ip = "111.222.333.444"
+backend_ip = "192.168.1.49"
 port = 9000;
 
-document.getElementById("choices-text-preset-values").value = decodeURI(getURLParameter('kod'));
 
 function getURLParameter(sParam) {
     var sPageURL = window.location.search.substring(1);
@@ -27,17 +26,13 @@ var HttpClient = function() {
     }
 }
 
-function search() {
-
+function get_program_url() {
     var code = getURLParameter('kod');
-
     let url = "http://" + backend_ip + ":" + port + "/kullanici_programi_getir?kod=" + code;
-
-    var client = new HttpClient();
-    client.get(url, function(response) {
-        // fotoyu buraya koy
-        document.getElementById('result').innerHTML = "<pre>" + response + "</pre>";
-    });
+    var img = document.createElement("img");
+    img.src = url;
+    var src = document.getElementById("program");
+    src.appendChild(img);
 }
 
-search()
+get_program_url();
