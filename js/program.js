@@ -30,10 +30,6 @@ function get_program_url() {
     var code = getURLParameter('kod');
     let url = "http://" + backend_ip + ":" + port + "/kullanici_programi_getir?kod=" + code;
     window.location.replace(url);
-    var img = document.createElement("img");
-    img.src = url;
-    var src = document.getElementById("program");
-    src.appendChild(img);
 }
 
 get_program_url();
